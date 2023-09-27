@@ -8,8 +8,6 @@ pip install -r req.txt
 ```
 usage: emailchecker.py [-h] [-m MAIL] [-f FILE] [-t THREADS]
 
-Email validation from a file
-
 options:
   -h, --help            show this help message and exit
   -m MAIL, --mail MAIL  Single email address to validate
