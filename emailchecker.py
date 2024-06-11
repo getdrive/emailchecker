@@ -14,15 +14,12 @@ def create_parser():
     return parser
 
 def validate_single_email(mail):
-    # Разделите email-адрес на имя пользователя и домен
     username, domain = mail.split('@')
-
     try:
         # Получите MX (Mail Exchanger) записи для домена
         mx_records = resolver.resolve(domain, 'MX')
         return bool(mx_records)
     except Exception as e:
-        # Ничего не выводим в случае ошибки
         return False
 
 def validate_emails_from_file(file_path, num_threads):
@@ -40,13 +37,11 @@ def validate_emails_from_file(file_path, num_threads):
     except FileNotFoundError:
         print(f"Файл '{file_path}' не найден.")
     except Exception as e:
-        # Ничего не выводим в случае ошибки при чтении файла
         pass
 
 if __name__ == '__main__':
     parser = create_parser()
-
-    # Если не указаны аргументы командной строки, выведите справку и завершите выполнение
+    
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
